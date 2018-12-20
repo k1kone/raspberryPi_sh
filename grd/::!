@@ -1,0 +1,51 @@
+from arduino_app import Arduino_app
+from bottle import run, route, template, redirect, request
+import sqlite3, time, datetime
+from collections import OrderedDict
+
+
+HOST = ['localhost', 0]
+PORT = 8080
+
+navlis = OrderedDict()
+navlis['top'] = '/'
+navlis['setting'] = '/setting'
+
+nowtime = datetime.datetime.now()
+
+class App(Arduino_app):
+    def __init__(self):
+        super().__init__()
+        
+
+
+app = App()
+app.set_user('k1srcufc@gmail.com')
+app.set_pass('_%YwhnmEKqZj')
+
+def timeset(n):
+    pass
+
+
+@route(navlis['setting'])
+def test():
+    word = 'and more....'
+    return template('test2', word = word)
+
+@route(navlis['top'])
+def index():
+    dht_dic = app.cmd_send('d') 
+    if not dht_dic :
+        dht = '計測できませんでした'
+        time.sleep(1)
+        return redirect('/')
+    else:
+        dht = '温度:{} ℃ / 湿度:{} %'.format(dht_dic['H'], dht_dic['T'])
+        return template('index', dht=dht, navlis = navlis, ntime=nowtime)
+
+while True:
+    #nowtime = datetime.datetime.now().strftime('%H:%M:%S')　
+    nowtime = datetime.datetime.now()
+
+run(host=HOST[0], port=PORT)
+
