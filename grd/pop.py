@@ -67,11 +67,11 @@ def moderate(month):
 
 def modejudge(T, t1, t2, H, h1, h2):
         if T < t1:
-            modtxt = '適温度より{}℃低いです。'.format(t1 - T)
+            modtxt1 = '適温度より{}℃低いです。'.format(t1 - T)
         elif T > t2:
-            modtxt = '適温度より{}℃高いです。'.format(T - t2)
+            modtxt1 = '適温度より{}℃高いです。'.format(T - t2)
         else:
-            modtxt = '温度は適切です。'
+            modtxt1 = '温度は適切です。'
 
         if H < h1:
             modtxt2 = '適湿度より{}%低いです。'.format(h1 - H)
@@ -80,7 +80,7 @@ def modejudge(T, t1, t2, H, h1, h2):
         else:
             modtxt2 = '湿度は適切です。'
 
-        return modtxt, modtxt2
+        return modtxt1, modtxt2
 
 
 
@@ -149,9 +149,9 @@ def index():
         moddate = moderate(ntime.month)
         mod = '{}の適切な温度は{}~{}℃、適切な湿度は{}~{}%です。'.format(moddate[0], moddate[1],moddate[2],moddate[3],moddate[4])
 
-        modtxt, modtxt2 = modejudge(dht_dic['T'], moddate[1], moddate[2], dht_dic['H'], moddate[3], moddate[4])
+        modtxt1, modtxt2 = modejudge(dht_dic['T'], moddate[1], moddate[2], dht_dic['H'], moddate[3], moddate[4])
 
-        return template('index', dht_t=dht_t, dht_h=dht_h, dht=dht, navlis = navlis, ntime=ntime.strftime('%Y, %m, %d, %H:%M:%S'), mod=mod, modtxt=modtxt, modtxt2=modtxt2, almls=almls ,stat=stat)
+        return template('index', dht_t=dht_t, dht_h=dht_h, dht=dht, navlis = navlis, ntime=ntime.strftime('%Y, %m, %d, %H:%M:%S'), mod=mod, modtxt1=modtxt1, modtxt2=modtxt2, almls=almls ,stat=stat)
 
 
 run(host=HOST[0], port=PORT)
