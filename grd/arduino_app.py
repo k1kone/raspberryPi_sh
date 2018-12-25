@@ -27,6 +27,9 @@ class Arduino_app(MAIL_app):
         if command is 'd':
             return   self.dht_inp(5)
 
+        elif command is 'j':
+            return   self.con.readline().decode()
+
     def dht_inp(self, r):
         if r is 0:
             return False

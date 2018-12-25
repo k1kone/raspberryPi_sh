@@ -16,10 +16,20 @@
     </nav>
     </header>
     <article>
-        <p>{{mod}}</p>
-        <p>{{dht}}</p>
-        <p>{{modtxt}}<br>{{modtxt2}}</p>
-        <p>{{ntime}}</p>
+        <section>
+            <h2>温度・湿度測定</h2>
+            <p>{{mod}}</p>
+            <p>{{dht}}</p>
+            <p>{{modtxt}}<br>{{modtxt2}}</p>
+            <p>{{ntime}}</p>
+        </section>
+        <section>
+            <h2>アラーム</h2>
+            %for ind,i in enumerate(almls):
+                <p>[{{ind}}]{{i['h']}}:{{i['m']}}</p>
+            %end
+            <p>{{stat}}</p>
+        </section>
     </article>
     <footer>copyright</footer>
 </div>

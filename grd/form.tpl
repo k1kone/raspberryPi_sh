@@ -18,7 +18,7 @@
     <article>
         <form action="" method="POST">
             <input type="number" name="time_h" min=0 max=23 />
-            <input type="number" name="time_m" min=0 max=59 />
+            <input type="number" name="time_m" min="0" max="59" step="10" />
             <input type="submit" value="登録"/>
         </form>
     </article>
