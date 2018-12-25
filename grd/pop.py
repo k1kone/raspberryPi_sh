@@ -151,7 +151,7 @@ def index():
 
         modtxt, modtxt2 = modejudge(dht_dic['T'], moddate[1], moddate[2], dht_dic['H'], moddate[3], moddate[4])
 
-        return template('index', dht=dht, navlis = navlis, ntime=ntime.strftime('%Y, %m, %d, %H:%M:%S'), mod=mod, modtxt=modtxt, modtxt2=modtxt2, almls=almls ,stat=stat)
+        return template('index', dht_t=dht_t, dht_h=dht_h, dht=dht, navlis = navlis, ntime=ntime.strftime('%Y, %m, %d, %H:%M:%S'), mod=mod, modtxt=modtxt, modtxt2=modtxt2, almls=almls ,stat=stat)
 
 
 run(host=HOST[0], port=PORT)
