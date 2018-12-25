@@ -16,7 +16,9 @@
     </nav>
     </header>
     <article>
+        <p>{{mod}}</p>
         <p>{{dht}}</p>
+        <p>{{modtxt}}<br>{{modtxt2}}</p>
         <p>{{ntime}}</p>
     </article>
     <footer>copyright</footer>
@@ -28,3 +30,14 @@
 </script>
 </body>
 </html>
+<!--
+
+dht=dht
+navlis = navlis,
+ntime=nowtime.now().strftime('%Y, %m, %d, %H:%M:%S'), 
+mod=mod 
+modtxt=modtxt
+
+-->
+
+
