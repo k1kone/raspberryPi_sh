@@ -6,15 +6,16 @@ appdb = sqlite3.connect('app.db')
 db = appdb.cursor()
 
 #make table in datebase
-db.execute("create table if not exists user(mail, pw)")
+db.execute("drop table if exists user")
+db.execute("create table if not exists user(mail, pw,send_mail)")
 db.execute("drop table if exists alm")
 db.execute("create table if not exists alm(n,h,m)")
 
 #date input in table:user of datebase
-#db.execute("insert into user values('k1srcufc@gmail.com','_%YwhnmEKqZj')")
-db.execute("insert into alm values(1,18,35)")
+db.execute("insert into user values('k1srcufc@gmail.com','_%YwhnmEKqZj','k1srsufc@gmail.com')")
+db.execute("insert into alm values(1,13,50)")
 
-db.execute("select mail,pw from user order by mail")
+db.execute("select mail,pw,send_mail from user order by mail")
 for row in db.fetchall():
     print(row)
 
