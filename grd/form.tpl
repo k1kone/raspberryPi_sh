@@ -87,17 +87,27 @@ header nav ul{
 header nav li{
 	margin:0 0.5em 0.5em 0;
 	font-size:1.5rem;
-	padding-left:0.8rem;
+	padding-left:1.75rem;
     position:relative;
 }
-
+header nav li:first-child{
+	margin-right:1.5rem;
+}	
 header nav li::before{
-	content:'>';
-	font-size:1rem;
-	line-height:2rem;
-	margin-right:0.25rem;
+	content:'';
+	width:1em;
+	height:1em;
+	background:url('https://raw.githubusercontent.com/k1kone/raspberryPi_sh/master/grd/img/home.png') no-repeat center left;
+	background-size:contain;
+	position:absolute;
+	top:0.3em;
+	left:0;
 }
-
+	
+header nav li:last-child::before{
+background:url('https://raw.githubusercontent.com/k1kone/raspberryPi_sh/master/grd/img/setting.png') no-repeat center left;
+	background-size:contain;
+}
 header nav a{
 	color:#424242;
 	text-decoration:none;
@@ -302,10 +312,12 @@ article h2{
 	width:95%;
 	margin:0 auto;
 	font-size:2rem;
+	align-items:center;
 }
 
 .timetable p{
 	margin:1rem 0;
+
 }
 .timetable .num{
 	width:2rem;
@@ -323,6 +335,28 @@ article h2{
 .timetable:not(:last-child){
 	border-bottom:dotted 1px #C9C9C9;
 	margin-bottom:0.5rem;
+}
+
+.timetable a{
+    display:inline-block;
+	text-decoration:none;
+	color:#fff;
+	background:#797979;
+	font-size:1.5rem;
+	width:3em;
+	text-align:center;
+	line-height:1.75em;	
+}
+	form{
+		text-align:center;
+		padding:1rem 0;
+	}
+input{
+	font-size:1.5rem;
+	padding:0 0.25em;
+	line-height:2em;
+	text-align:center;
+	margin:0 0.5rem;
 }
 
 .roadara{
