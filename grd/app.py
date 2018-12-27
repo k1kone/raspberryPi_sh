@@ -108,34 +108,34 @@ def index():
     
     t1 = datetime.datetime(ntime.year, ntime.month, ntime.day, ntime.hour, ntime.minute) 
     dht_dic = app.cmd_send('d') 
-    if not stls:
-        stls =['' for i in range(len(almls))]
+    #if not stls:
+        #stls =['' for i in range(len(almls))]
 
     for ind,i in enumerate(almls):
         t2 = datetime.datetime(ntime.year, ntime.month, ntime.day, i['h'], i['m']) 
         tm = int((t1-t2).total_seconds()/60)
 
         if tm<-5:
-            stls[ind] = 'out of alarm time.'
+            #stls[ind] = 'out of alarm time.'
             app.cmd_send('c') 
         elif tm >=-5 and tm<0:
             if 'o' in stat:
-                stls[ind] = 'success!'
+                #stls[ind] = 'success!'
                 app.cmd_send('b') 
             else:
                 app.cmd_send('r') 
-                stls[ind] = 'waiting...'
+                #stls[ind] = 'waiting...'
         elif tm >=0 and tm<=5:
             if 'o' in stat:
-                stls[ind] = 'success!'
+                #stls[ind] = 'success!'
                 app.cmd_send('b') 
             else:
                 app.cmd_send('a') 
                 app.cmd_send('s') 
-                stls[ind] = 'not pushed button'
+                #stls[ind] = 'not pushed button'
         elif tm >5:
             app.cmd_send('c') 
-            stls[ind] = 'not success.'
+            #stls[ind] = 'not success.'
         
     if not dht_dic :
         dht = '計測できませんでした'
@@ -150,7 +150,7 @@ def index():
 
         modtxt1, modtxt2, cl= modejudge(dht_dic['T'], moddate[1], moddate[2], dht_dic['H'], moddate[3], moddate[4])
 
-        return template('index', dht_t=dht_t, dht_h=dht_h, dht=dht, navlis = navlis, ntime=ntime.strftime('%Y年%m月%d日 %H:%M:%S'), mod=mod, modtxt1=modtxt1, modtxt2=modtxt2, cl=cl, almls=almls ,stat=stat, stls=stls)
+        return template('index', dht_t=dht_t, dht_h=dht_h, dht=dht, navlis = navlis, ntime=ntime.strftime('%Y年%m月%d日 %H:%M:%S'), mod=mod, modtxt1=modtxt1, modtxt2=modtxt2, cl=cl, almls=almls ,stat=stat)
 
 
 @route(navlis['setting'], method=['GET', 'POST'])
@@ -187,7 +187,7 @@ def setting():
 
         appdb.commit()
         appdb.close()
-        stls =['' for i in range(len(almls))]
+        #stls =['' for i in range(len(almls))]
 
         return template('form',navlis = navlis, almls=almls,ntime=datetime.datetime.now().strftime('%Y年%m月%d日 %H:%M:%S') )
 

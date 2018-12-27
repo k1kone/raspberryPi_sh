@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<title>test</title>
+<title>℃%</title>
 </head>
 <body>
 
@@ -35,14 +35,10 @@
                 <p class="noalm">アラームが設定されていません。<br><a href="/setting">アラームを設定する</a></p>
             %else:
                 %for ind,i in enumerate(almls):
-                    <div class="timetable flex"><p><span class="num">{{ind+1}}</span>{{str(i['h']).zfill(2)}}:{{str(i['m']).zfill(2)}}</p><p>{{stls[ind]}}</p></div>
+                    <div class="timetable flex"><p><span class="num">{{ind+1}}</span>{{str(i['h']).zfill(2)}}:{{str(i['m']).zfill(2)}}</p></div>
                 %end
             %end
-            %for ind, i in enumerate(stls):
-                <p>{{'[{}]{}'.format(ind, i)}}</p>
-            %end
 			
-            <p>{{stat}}</p>
         </section>
 		</div>
 		<section class="roadara flex">
